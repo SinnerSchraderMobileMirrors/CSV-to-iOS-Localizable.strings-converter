@@ -1,6 +1,7 @@
-$: << File.expand_path(File.join(File.dirname(__FILE__)))
-require "command"
-class CSV2StringsCommand < Command
+$:.push File.expand_path("../..", __FILE__)
+require "base_command"
+
+class CSV2StringsCommand < BaseCommand
   default_task :csv2strings
 
   desc "CSV_FILENAME", "convert CSV file to '.strings' file"

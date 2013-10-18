@@ -1,25 +1,34 @@
-$: << File.expand_path(File.join(File.dirname(__FILE__)))
-require 'rubygems'
+module CSVConverter
+    VERSION = "0.3.0"
+end
+
+require 'csvconverter/google_doc'
+require 'csvconverter/commands/command'
+
+# require 'csvconverter/fromcsv/*'
+# require 'csvconverter/tocsv/*'
+# $: << File.expand_path(File.join(File.dirname(__FILE__)))
+# require 'rubygems'
 
 # loads the modules from the lib folder dynamically
-def loadLibraries
-	libraries = Dir.glob(File.expand_path(File.join(File.dirname(__FILE__))) + '/*').select{|folder| File.directory? folder.to_s}
-	libraries.each do |folder|
-	    if Dir.glob(folder + '/converter.rb').size > 0
-	        require folder.to_s + "/converter"
-	    end
-	end
-end
+# def loadLibraries
+# 	libraries = Dir.glob(File.expand_path(File.join(File.dirname(__FILE__))) + '/*').select{|folder| File.directory? folder.to_s}
+# 	libraries.each do |folder|
+# 	    if Dir.glob(folder + '/converter.rb').size > 0
+# 	        require folder.to_s + "/converter"
+# 	    end
+# 	end
+# end
 
-CSVGEM = RUBY_VERSION.match(/^[0-1]\.[0-8]\./) ? 'faster_csv' : 'csv'
+# CSVGEM = RUBY_VERSION.match(/^[0-1]\.[0-8]\./) ? 'faster_csv' : 'csv'
 
-begin
-	require CSVGEM
-rescue LoadError
-	puts "Failed to load #{CSVGEM} (ruby #{RUBY_VERSION})"
-	puts "gem install #{CSVGEM}"
-	exit
-end
+# begin
+# 	require CSVGEM
+# rescue LoadError
+# 	puts "Failed to load #{CSVGEM} (ruby #{RUBY_VERSION})"
+# 	puts "gem install #{CSVGEM}"
+# 	exit
+# end
 
-CSVParserClass = CSVGEM == 'csv' ? CSV : FasterCSV
+# CSVParserClass = CSVGEM == 'csv' ? CSV : FasterCSV
 loadLibraries

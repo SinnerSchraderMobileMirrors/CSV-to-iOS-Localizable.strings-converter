@@ -1,5 +1,5 @@
 module CSV2Android
-    require File.expand_path('../../csv2base', __FILE__)
+    require 'csv2base'
 
     class Converter < Csv2Base
         attr_accessor :file_path

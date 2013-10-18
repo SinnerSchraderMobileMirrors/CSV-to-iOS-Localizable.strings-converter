@@ -1,7 +1,6 @@
-$: << File.expand_path(File.join(File.dirname(__FILE__)))
 require "command"
 
-class CSV2PhpCommand < Command
+class CSV2PhpCommand < BaseCommand
   default_task :csv2php
 
   desc "CSV_FILENAME", "convert CSV file to php language file file"

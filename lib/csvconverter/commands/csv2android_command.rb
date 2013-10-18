@@ -1,7 +1,6 @@
-$: << File.expand_path(File.join(File.dirname(__FILE__)))
 require "command"
 
-class CSV2SAndroidCommand < Command
+class CSV2SAndroidCommand < BaseCommand
   default_task :csv2android
 
   desc "CSV_FILENAME", "convert CSV file to android strings xml file"

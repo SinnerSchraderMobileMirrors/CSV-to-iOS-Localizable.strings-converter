@@ -1,5 +1,5 @@
 module Strings2CSV
-    require File.expand_path('../../base2csv', __FILE__)
+    require 'base2csv'
 
     class Converter < Base2Csv
 
